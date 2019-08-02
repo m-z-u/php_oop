@@ -1,3 +1,28 @@
+<?php
+
+require_once('Models/Todo.php');
+
+//DBからデータを取得する
+
+     //インスタンスを$todoという変数に代入
+    //インスタンス化　=== new クラス名()
+    $todo = new Todo();
+
+/*変数の中身を確認したいとき　この３つをまとめてかく
+    echo '<pre>';
+    var_dump($todo);
+    exit;
+*/
+//DBからデータを取得して、$tasksという変数に代入
+//DBからデータを取得 === TodoクラスのインスタンスのgatAllメソッドを実行
+$tasks = $todo->getAll();
+
+echo '<pre>';
+    var_dump($tasks);
+    exit;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +69,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                <!--取得したデータを表示する-->
                     <tr>
                         <td>create new website</td>
                         <td>2019/08/21</td>
