@@ -17,9 +17,9 @@ require_once('Models/Todo.php');
 //DBからデータを取得 === TodoクラスのインスタンスのgatAllメソッドを実行
 $tasks = $todo->getAll();
 
-echo '<pre>';
-    var_dump($tasks);
-    exit;
+// echo '<pre>';
+//     var_dump($tasks);
+//     exit;
 
 ?>
 
@@ -70,9 +70,10 @@ echo '<pre>';
                 </thead>
                 <tbody>
                 <!--取得したデータを表示する-->
+                <?php foreach($tasks as $task):?>
                     <tr>
-                        <td>create new website</td>
-                        <td>2019/08/21</td>
+                        <td><?php echo $task['name'] ?></td>
+                        <td><?php echo $task['due_date'] ?></td>
                         <td>
                             <a class="text-success" href="edit.php">EDIT</a>
                         </td>
@@ -80,16 +81,7 @@ echo '<pre>';
                             <a class="text-danger" href="delete.php">DELETE</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>go to club</td>
-                        <td>2019/10/21</td>
-                        <td>
-                            <a class="text-success" href="edit.php">EDIT</a>
-                        </td>
-                        <td>
-                            <a class="text-danger" href="delete.php">DELETE</a>
-                        </td>
-                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>  
         </section>
