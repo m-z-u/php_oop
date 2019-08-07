@@ -1,6 +1,7 @@
 <?php
 
 require_once('Models/Todo.php');
+require_once('function.php');
 
 //DBからデータを取得する
 
@@ -50,7 +51,7 @@ $tasks = $todo->getAll();
         <section>
             <form class="form-row" action="create.php" method="POST">
                 <div class="col-12 col-md-9 py-2">
-                    <input type="text" class="form-control" placeholder="ADD TODO">
+                    <input type="text" name="task" class="form-control" placeholder="ADD TODO">
                 </div>
                 <div class="py-2 col-md-3 col-12">
                     <button type="submit" class="col-12 btn btn-primary btn-block">ADD</button>
@@ -75,7 +76,7 @@ $tasks = $todo->getAll();
                         <td><?php echo $task['name'] ?></td>
                         <td><?php echo $task['due_date'] ?></td>
                         <td>
-                            <a class="text-success" href="edit.php">EDIT</a>
+                            <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>">EDIT</a>
                         </td>
                         <td>
                             <a class="text-danger" href="delete.php">DELETE</a>
