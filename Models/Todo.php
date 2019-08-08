@@ -83,6 +83,16 @@ public function update($id, $name){
     $stmt = $this->db_manager->dbh->prepare('UPDATE ' . $this->table . ' SET name = ? WHERE id = ?');
     $stmt->execute([$name, $id]);
 }
+
+
+public function delete(){
+
+    //削除処理
+    //準備
+    $stmt = $this->db_manager->dbh->prepare('DELETE FROM ' . $this->table . ' WHERE id = ?');
+    //実行
+    $stmt->execute([$id]);
+}
 }
 
 
